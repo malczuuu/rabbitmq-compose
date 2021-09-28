@@ -1,0 +1,56 @@
+{
+  "rabbit_version": "3.8.3",
+  "users": [
+    {
+      "name": "user",
+      "password_hash": "s0qXkcxm5rUp6UGDVh5OwLU6+Hwy0WbDIfmwraZt/+bi7TuV",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": ""
+    },
+    {
+      "name": "admin",
+      "password_hash": "6FopoBWti2T2/GpiHydHh7IN+jXuf6yo5eOgBWJmoSxiOIFS",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "admin",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "user",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [],
+  "parameters": [],
+  "global_parameters": [],
+  "policies": [
+    {
+      "vhost": "/",
+      "name": "TTL",
+      "pattern": ".*",
+      "apply-to": "queues",
+      "definition": {
+        "message-ttl": 60000
+      },
+      "priority": 0
+    }
+  ],
+  "queues": [],
+  "exchanges": [],
+  "bindings": []
+}
