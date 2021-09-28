@@ -14,6 +14,12 @@ $ docker network create rabbitmq
 $ docker volume create rabbitmq_data
 ```
 
+## Running on local machine
+
+```shell
+$ docker-compose up -d
+```
+
 ## Pre-configured users
 
 | username | password | more info                   |
