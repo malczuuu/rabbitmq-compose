@@ -1,0 +1,22 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3.9.7-management-alpine
+    ports:
+      - "127.0.0.1:1883:1883"
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:8883:8883"
+      - "127.0.0.1:15672:15672"
+    volumes:
+      - ./conf/rabbitmq/:/etc/rabbitmq/
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - rabbitmq
+
+networks:
+  rabbitmq:
+    external: true
+
+volumes:
+  rabbitmq_data:
+    external: true
