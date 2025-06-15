@@ -1,14 +1,16 @@
 version: "3"
 services:
   rabbitmq:
-    image: rabbitmq:3.9.7-management-alpine
+    image: rabbitmq:4.1.1-management-alpine
     ports:
       - "127.0.0.1:1883:1883"
       - "127.0.0.1:5672:5672"
       - "127.0.0.1:8883:8883"
       - "127.0.0.1:15672:15672"
     volumes:
-      - ./conf/rabbitmq/:/etc/rabbitmq/
+      - ./conf/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+      - ./conf/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+      - ./conf/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - rabbitmq_data:/var/lib/rabbitmq
     networks:
       - rabbitmq
